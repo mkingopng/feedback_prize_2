@@ -33,4 +33,4 @@ cm = sns.light_palette('green', as_cmap=True)
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-COMP_DIR = 'data'
+COMP_DIR = '../data'

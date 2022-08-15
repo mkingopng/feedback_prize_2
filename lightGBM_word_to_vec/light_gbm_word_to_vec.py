@@ -18,7 +18,7 @@ class CFG:
     n_folds = 4
 
 
-INPUT_DIR = "data/feedback-prize-effectiveness/"
+INPUT_DIR = "../data/"
 
 
 def get_train_essay(essay_id):

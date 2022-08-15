@@ -11,7 +11,7 @@ test_path = COMP_DIR + "test.csv"
 submission_path = COMP_DIR + "sample_submission.csv"
 test_origin = pd.read_csv(test_path)
 submission_origin = pd.read_csv(submission_path)
-data_path = "data/train.csv"
+data_path = "../data/train.csv"
 cols_list = ['essay_id', 'discourse_text']
 idxs_list = [49, 80, 945, 947, 1870]
 temp = pd.read_csv(data_path, usecols=cols_list).loc[idxs_list, :]
