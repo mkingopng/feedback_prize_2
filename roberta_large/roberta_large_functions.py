@@ -6,7 +6,7 @@ from roberta_large_CFG import *
 # ====================================================
 
 def fetchEssay(essay_id: str):
-    essay_path = os.path.join('../input/feedback-prize-effectiveness/train/', essay_id + '.txt')
+    essay_path = os.path.join('data', 'train', essay_id + '.txt')
     essay_text = open(essay_path, 'r').read()
     return essay_text
 
@@ -21,7 +21,7 @@ def seed_everything(seed):
 
 
 def get_essay(essay_id, is_train=True):
-    parent_path = INPUT_DIR + 'train' if is_train else INPUT_DIR + 'test'
+    parent_path = os.path.join('data', 'train') if is_train else os.path.join('data', 'test')
     essay_path = os.path.join(parent_path, f"{essay_id}.txt")
     essay_text = open(essay_path, 'r').read()
     return essay_text
@@ -43,8 +43,8 @@ def get_score(y_true, y_pred):
     return round(score, 5)
 
 
-test = pd.read_csv(os.path.join(INPUT_DIR, 'test.csv'))
-submission = pd.read_csv(os.path.join(INPUT_DIR, 'sample_submission.csv'))
+test = pd.read_csv(os.path.join('data', 'test.csv'))
+submission = pd.read_csv(os.path.join('data', 'sample_submission.csv'))
 test['essay_text'] = test['essay_id'].apply(lambda x: get_essay(x, is_train=False))
 
 # ====================================================

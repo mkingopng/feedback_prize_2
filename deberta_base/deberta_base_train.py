@@ -1,6 +1,5 @@
 from deberta_base_functions import *
 
-
 if __name__ == '__main__':
 
     def get_result(oof_df):
@@ -24,8 +23,8 @@ if __name__ == '__main__':
         oof_df.to_pickle(OUTPUT_DIR + 'oof_df.pkl')
         oof_df.to_csv(OUTPUT_DIR + f'oof_df.csv', index=False)
 
-    # if CFG.wandb:
-    #     wandb.finish()
+    if CFG.wandb:
+        wandb.finish()
 
-    A = pd.read_csv(OUTPUT_DIR + 'oof_df.csv')
-    A.head()
+A = pd.read_csv(OUTPUT_DIR+'oof_df.csv')
+A.head()
