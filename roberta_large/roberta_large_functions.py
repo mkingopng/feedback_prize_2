@@ -191,5 +191,5 @@ def train_model():
                     f"Epoch {epoch + 1} Loss: {avg_val_loss}")
             with open('roberta_large_epoch_%s_fold_%s.pkl' % (epoch, i),
                       'wb') as f:
-                pickle.dump(net.to(torch.device("cpu")), f)
+                pickle.dump(net.to(torch.device("cuda")), f)
         torch.cuda.empty_cache()

@@ -1,7 +1,7 @@
 from deberta_base_functions import *
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     def get_result(oof_df):
         labels = oof_df['label'].values
         preds = oof_df[['pred_0', 'pred_1', 'pred_2']].values.tolist()

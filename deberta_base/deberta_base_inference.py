@@ -17,7 +17,9 @@ deberta_predictions = []
 for i in CFG.trn_fold:
     model = FeedBackModel(CFG.model)
     model.load_state_dict(
-        torch.load('../input/dbv3basemodels202279/models-deberta-v3-base-deberta-v3-base_fold' + str(i) + '_best.pth'))
+        torch.load('model_zoo/deberta_v3_base/deberta-v3-base_fold' + str(i) +
+                   '_best.pth')
+    )
     prediction = inference_fn(test_loader, model, device)
     deberta_predictions.append(prediction)
     torch.cuda.empty_cache()
