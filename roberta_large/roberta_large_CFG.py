@@ -30,9 +30,7 @@ def fetch_essay(essay_id: str):
     :return:
     """
     essay_path = os.path.join('data/train/', essay_id + '.txt')
-
     essay_text = open(essay_path, 'r').read()
-
     return essay_text
 
 
@@ -53,7 +51,7 @@ def seed_everything(seed):
 # configurations
 FOLDS = 5
 lr = 2e-5
-EPOCHS = 2
+EPOCHS = 5  # increase epochs to 5
 SEED = 2018
 MAX_LEN = 512
 BATCH_SIZE = 4  # out of memory error at batch size 8

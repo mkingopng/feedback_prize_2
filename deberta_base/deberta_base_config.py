@@ -17,14 +17,16 @@ from torch.optim import lr_scheduler
 from torch.utils.data import DataLoader, Dataset
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import log_loss
-from transformers import AutoModel, AutoConfig, AutoTokenizer, AdamW, DataCollatorWithPadding
-from transformers import get_linear_schedule_with_warmup, get_cosine_schedule_with_warmup
+from transformers import AutoModel, AutoConfig, AutoTokenizer, AdamW, \
+    DataCollatorWithPadding
+from transformers import get_linear_schedule_with_warmup, \
+    get_cosine_schedule_with_warmup
 import wandb
 warnings.simplefilter('ignore')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 INPUT_DIR = os.path.join('data', 'feedback_prize_with_essay_text/')
-OUTPUT_DIR = 'baseline'
+OUTPUT_DIR = os.path.join('model_zoo', 'deberta_v3_base_fine_tuned')
 
 if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
@@ -46,16 +48,15 @@ class CFG:
     batch_size = 8
     num_workers = 3
     lr = 2e-5
-    weigth_decay = 0.01
-    epochs = 4
-    n_fold = 4
+    weight_decay = 0.01
+    epochs = 5
+    n_fold = 5
     trn_fold = [0, 1, 2, 3]
     train = True
     num_warmup_steps = 0
     num_cycles = 0.5
-    debug = True
+    debug = False
     debug_ver2 = False
-
 
 
 if CFG.debug:
@@ -66,4 +67,3 @@ if CFG.debug:
 if CFG.debug_ver2:
     CFG.epochs = 1
     CFG.trn_fold = [0, 1]
-
