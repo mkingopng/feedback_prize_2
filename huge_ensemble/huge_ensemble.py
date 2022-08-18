@@ -34,7 +34,7 @@ MODEL_NAMES = ['deberta', 'deberta_large', 'roberta', 'lgbm']
 
 # model 1: deberta base`
 # configurations
-INPUT_DIR = '../input/feedback-prize-effectiveness/'
+INPUT_DIR = 'data'
 
 
 class CFG:
@@ -64,7 +64,7 @@ class CFG:
     num_warmup_steps = 0
     trn_fold = [0, 1, 2, 3, 4]
     gradient_checkpointing = True
-    model = '../input/deberta-v3-base/deberta-v3-base'
+    model = os.path.join('model_zoo', 'deberta-v3-base')
 
 
 # helper functions
